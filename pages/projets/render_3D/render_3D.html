@@ -1,0 +1,311 @@
+<section class="contenu-centre">
+
+    <h2 class="page-titre">
+        Moteur de rendu 3D GPU
+    </h2>
+
+    <p class="intro">
+        Projet personnel développé en langage C sous Linux ayant pour objectif
+        la conception d'un moteur de rendu 3D entièrement programmable. Plutôt
+        que d'utiliser une bibliothèque graphique comme OpenGL ou un moteur
+        existant, l'ensemble de la chaîne de rendu a été implémenté depuis les
+        fondements : chargement de modèles 3D, transformations géométriques,
+        rasterisation, calcul des intersections, gestion de la caméra,
+        architecture multi-processus et calcul d'éclairage physique sur GPU.
+        Ce projet constitue une exploration des techniques modernes de rendu
+        employées dans les moteurs graphiques contemporains.
+    </p>
+
+
+    <div class="contact-card gauche" style="display:flex; align-items:center; gap:20px;">
+
+        <div class="texte" style="flex:1;">
+
+            <h3>Une architecture modulaire</h3>
+
+            <p>
+                Le moteur est organisé autour de plusieurs processus indépendants
+                communiquant par mémoire partagée (Shared Memory). Un éditeur est
+                responsable de la scène, un second processus effectue le rendu
+                des images tandis qu'un troisième collecte les événements
+                clavier et souris afin de piloter la caméra en temps réel.
+            </p>
+
+            <p>
+                Cette architecture permet de séparer clairement les différentes
+                responsabilités du moteur et d'éviter toute interruption du rendu
+                lors des modifications de la scène. Les différentes structures
+                sont synchronisées à l'aide de mutex et d'un système de versions
+                garantissant la cohérence des données.
+            </p>
+
+        </div>
+
+        <div class="photo" style="flex:0 0 420px;">
+
+            <img src="images/architecture.png" alt="" style="width:100%; height:auto; display:block;">
+
+            <p class="legende" align="center">
+                Architecture générale du moteur reposant sur plusieurs processus
+                communiquant par mémoire partagée.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="contact-card droite">
+
+    <div class="texte">
+
+        <h3>Reconstruire la chaîne graphique</h3>
+
+        <p>
+            L'ensemble du pipeline graphique est implémenté en langage C.
+            Chaque sommet est transformé par une succession d'opérations
+            géométriques (mise à l'échelle, rotations, translation), puis
+            converti dans le repère de la caméra avant d'être projeté sur
+            l'écran selon une projection perspective.
+        </p>
+
+        <p>
+            Les triangles sont ensuite découpés par le volume de vision
+            (<em>clipping</em>), rasterisés pixel par pixel puis soumis à un
+            Z-buffer permettant de conserver uniquement les surfaces visibles.
+            Cette approche reproduit le fonctionnement des pipelines
+            graphiques matériels modernes.
+        </p>
+
+    </div>
+
+    <div style="display:flex; justify-content:center; align-items:flex-start; gap:30px;">
+
+    <div style="flex:1; display:flex; flex-direction:column; align-items:center;">
+
+        <img src="images/clipping.png"
+             style="width:100%; max-width:180px; height:auto;">
+
+        <p class="legende">
+            Découpage (<em>clipping</em>) des triangles par le volume de vision.
+        </p>
+
+    </div>
+
+    <div style="flex:1; display:flex; flex-direction:column; align-items:center;">
+
+        <img src="images/raster.png"
+             style="width:100%; max-width:180px; height:auto;">
+
+        <p class="legende">
+            Rasterisation des triangles permettant de déterminer les pixels visibles.
+        </p>
+
+    </div>
+
+</div>
+
+</div>
+
+
+
+
+    <div class="contact-card gauche" style="display:flex; align-items:center; gap:20px;">
+
+        <div class="texte" style="flex:1;">
+
+            <h3>Deferred Rendering et G-buffer</h3>
+
+            <p>
+                Afin de séparer la géométrie du calcul d'éclairage, le moteur
+                repose sur une architecture de type <em>Deferred Rendering</em>.
+                Lors de la première passe, chaque pixel mémorise sa position
+                dans l'espace, sa normale, ainsi que différentes informations
+                nécessaires aux calculs d'éclairage.
+            </p>
+
+            <p>
+                Cette structure de données, appelée G-buffer, permet de calculer
+                ensuite l'illumination indépendamment de la géométrie de la
+                scène, ce qui constitue une approche largement utilisée dans les
+                moteurs de rendu modernes.
+            </p>
+
+        </div>
+
+        <div class="photo" style="flex:0 0 420px; text-align:center;">
+
+    <img src="images/norm.png"
+         alt=""
+         style="width:50%; height:auto; display:block; margin:0 auto;">
+
+    <p class="legende">
+        Exemple des informations enregistrées dans le G-buffer.
+    </p>
+
+</div>
+
+    </div>
+
+
+
+
+    <div class="contact-card droite" style="display:flex; align-items:center; gap:20px;">
+
+        <div class="photo" style="flex:0 0 420px;">
+
+            <img src="images/lumiere.png" alt="" style="width:100%; height:auto; display:block;">
+
+            <p class="legende" align="center">
+                L'éclairage est calculé sur GPU depuis un kernel pour OpenCL.
+            </p>
+
+        </div>
+
+        <div class="texte" style="flex:1;">
+
+            <h3>Calcul parallèle sur GPU</h3>
+
+            <p>
+                Une fois la géométrie projetée, l'ensemble du calcul
+                d'illumination est confié au processeur graphique grâce à
+                OpenCL qui nécessite de développer un kernel. Chaque pixel est traité indépendamment afin de réaliser
+                un lancer de rayons (Path Tracing) permettant de simuler les
+                réflexions successives de la lumière dans la scène.
+            </p>
+
+            <p>
+                Cette approche exploite le parallélisme massif des GPU afin de
+                produire un éclairage plus réaliste tout en conservant des temps
+                de calcul compatibles avec un affichage interactif.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+
+    <div class="contact-card gauche" style="display:flex; align-items:center; gap:20px;">
+
+        <div class="texte" style="flex:1;">
+
+            <h3>Chargement des modèles 3D</h3>
+
+            <p>
+                Le moteur possède son propre chargeur de fichiers OBJ capable de
+                reconstruire les maillages triangulaires utilisés lors du rendu.
+                Les sommets, indices de triangles et transformations sont
+                convertis dans des structures de données optimisées pour les
+                traitements CPU puis GPU.
+            </p>
+
+            <p>
+                Les objets peuvent être instanciés plusieurs fois dans la scène
+                avec des positions, orientations et dimensions différentes,
+                permettant de limiter la duplication des données en mémoire.
+            </p>
+
+        </div>
+
+        <div class="photo" style="flex:0 0 420px;">
+
+            <img src="images/render3D.jpg" alt="" style="width:100%; height:auto; display:block;">
+
+            <p class="legende" align="center">
+                Chargement et instanciation de modèles 3D au format OBJ.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+
+    <div class="contact-card droite" style="display:flex; align-items:center; gap:20px;">
+
+        <div class="texte" style="flex:1;">
+
+            <h3>Interaction temps réel</h3>
+
+            <p>
+                Une caméra libre permet d'explorer la scène grâce à un système
+                d'événements indépendant du moteur de rendu. Les mouvements de
+                souris et du clavier sont transmis au travers d'une mémoire
+                partagée dédiée afin de limiter les dépendances entre les
+                différents processus.
+            </p>
+
+            <p>
+                Cette organisation rend possible une navigation fluide dans des
+                scènes complexes tout en maintenant un pipeline de rendu
+                entièrement asynchrone.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+
+    <div class="contact-card gauche">
+
+        <div class="texte">
+
+            <h3>Optimisation des performances</h3>
+
+            <p>
+                Une attention particulière a été portée à l'optimisation des
+                échanges de données entre le CPU et le GPU. Les géométries sont
+                transférées uniquement lorsqu'elles sont modifiées, tandis que
+                des buffers persistants limitent les allocations mémoire au cours
+                de l'exécution.
+            </p>
+
+            <p>
+                Le moteur utilise également un système d'accumulation temporelle
+                permettant de réutiliser les calculs des images précédentes afin
+                d'améliorer progressivement la qualité du rendu sans augmenter
+                significativement le coût de calcul.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+
+    <div class="contact-card droite">
+
+        <div class="texte">
+
+            <h3>Compétences développées</h3>
+
+            <p>
+                Ce projet m'a permis d'acquérir une expérience approfondie en
+                programmation scientifique et en calcul haute performance. Il m'a
+                conduit à développer des compétences en langage C, géométrie 3D,
+                algorithmes de rasterisation, calcul parallèle sur GPU avec
+                OpenCL, programmation système sous Linux, mémoire partagée,
+                synchronisation multi-processus, optimisation des performances,
+                structures de données et conception d'architectures logicielles
+                complexes.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <p class="note">
+        Projet personnel développé en langage C sous Linux autour des techniques
+        modernes de rendu 3D, du calcul parallèle et de la programmation
+        graphique.
+    </p>
+
+</section>

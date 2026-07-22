@@ -1,0 +1,279 @@
+<section class="contenu-centre">
+
+    <h2 class="page-titre">
+        Le loup du violoncelle
+    </h2>
+
+    <p class="intro">
+        Projet tutoré réalisé en troisième année de Licence de Physique à
+        l'Institut de Physique de Nice (INPHYNI). Pendant plusieurs mois, j'ai
+        étudié le phénomène de la <em>note du loup</em>, une instabilité acoustique
+        bien connue des violoncellistes. Ce projet mêlait physique des vibrations,
+        acoustique, instrumentation expérimentale, traitement du signal,
+        modélisation mathématique et simulations numériques afin de comprendre
+        l'origine de cette résonance particulière et de proposer un modèle
+        capable d'en reproduire les principales caractéristiques.
+    </p>
+
+    <div class="contact-card gauche" style="display:flex; align-items:center; gap:20px;">
+
+        <div class="texte" style="flex:1;">
+
+            <h3>Comprendre la note du loup</h3>
+
+            <p>
+                Lorsqu'une corde du violoncelle est jouée à une fréquence très
+                proche d'un mode propre du corps de l'instrument, les deux systèmes
+                entrent fortement en interaction. L'énergie oscille alors entre la
+                corde et la caisse de résonance, provoquant une alternance entre des
+                phases où le son est intense et d'autres où il disparaît presque.
+                Cette modulation est perçue comme un battement caractéristique qui
+                rend certaines notes difficiles à contrôler.
+            </p>
+
+            <p>
+                L'objectif du projet était de comprendre ce phénomène d'un point
+                de vue physique, d'en mesurer les caractéristiques sur un
+                instrument réel puis de vérifier qu'un modèle simple pouvait en
+                expliquer les mécanismes.
+            </p>
+
+        </div>
+
+        <div class="photo" style="flex:0 0 360px;">
+
+            <img src="images/loup_violoncelle.jpg" alt="" style="width:100%; height:auto; display:block;">
+            <p class="legende" align="center">
+                Photographie du violoncelle.
+            </p>
+
+        </div>
+    </div>
+
+
+    <div class="contact-card gauche" style="display:flex; align-items:center; gap:20px;">
+
+        <div class="texte" style="flex:1;">
+
+            <h3>Observer le phénomène expérimentalement</h3>
+
+            <p>
+                La première étape a consisté à enregistrer le son produit par le
+                violoncelle afin d'étudier son évolution dans le temps et dans le
+                domaine fréquentiel. Les enregistrements montrent clairement une
+                modulation périodique de l'amplitude sonore correspondant aux
+                battements entendus par le musicien.
+            </p>
+
+            <p>
+                L'analyse spectrale révèle également la présence de deux pics de
+                fréquence très proches, preuve que deux modes vibratoires
+                participent simultanément à la production du son. Cette observation
+                constitue la signature expérimentale du phénomène.
+            </p>
+
+        </div>
+
+        <div class="photo" style="flex:0 0 480px;">
+
+            <img src="images/loup_RepImp.jpg" alt="" style="width:100%; height:auto; display:block;">
+            <p class="legende" align="center">
+                Analyse fréquentielle de la réponse impulsionnelle mettant en évidence deux résonances proches,
+                responsables des battements observés.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="contact-card droite" style="display:flex; align-items:center; gap:20px;">
+
+        <div class="photo" style="flex:0 0 480px;" align="center">
+
+            <img src="images/loup_schema.jpg" alt="" style="width:100%; height:auto; display:block;">
+            <p class="legende">
+                Schéma retenue pour construire le modèle mécanique du système.
+            </p>
+
+        </div>
+
+        <div class="texte" style="flex:1;">
+
+            <h3>Construire un modèle physique</h3>
+
+            <p>
+                Afin d'interpréter les observations, le violoncelle a été modélisé
+                par deux oscillateurs harmoniques couplés représentant
+                respectivement la corde et un mode propre de la table d'harmonie.
+                Le chevalet assure le transfert d'énergie entre ces deux systèmes.
+            </p>
+
+            <p>
+                Malgré sa simplicité, ce modèle permet de décrire les échanges
+                d'énergie responsables des battements ainsi que le comportement des
+                fréquences propres lorsque les deux oscillateurs deviennent
+                résonants.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="contact-card droite">
+
+        <div class="texte">
+
+            <h3>Caractériser expérimentalement le modèle</h3>
+
+            <p>
+                Pour déterminer les paramètres du modèle, une cartographie des
+                vibrations de la table d'harmonie a été réalisée. Un haut-parleur
+                excitait le violoncelle à fréquence fixe tandis qu'un capteur
+                piézoélectrique mesurait localement l'amplitude des vibrations sur
+                une grille de mesure.
+            </p>
+
+            <p>
+                Cette cartographie permet d'identifier les ventres de vibration,
+                c'est-à-dire les zones où les amplitudes sont maximales. Ces
+                informations sont indispensables pour positionner les capteurs et
+                les masses utilisées lors des mesures suivantes.
+            </p>
+
+        </div>
+
+        <div class="photo" style="display:flex; justify-content:center; align-items:center; gap:30px;">
+
+            <div style="text-align:center; flex:1;">
+                <img src="images/loup_experience.jpg" alt="" style="height:200px; width:auto; object-fit:contain; display:block; margin:auto;">
+                <p class="legende">
+                    Dispositif expérimental utilisé pour mesurer la réponse vibratoire
+                    de la table du violoncelle.
+                </p>
+        </div>
+        <div style="text-align:center; flex:1;">
+            <img src="images/loup_cartographie.jpg" alt="" style="height:350px; width:auto; object-fit:contain; display:block; margin:auto;">
+            <p class="legende">
+                Cartographie des amplitudes de vibration permettant d'identifier
+                les ventres et les lignes nodales.
+            </p>
+        </div>
+    </div>
+
+    </div>
+
+
+    <div class="contact-card gauche" style="display:flex; align-items:center; gap:20px;">
+
+        <div class="texte" style="flex:1;">
+
+            <h3>Identifier les paramètres du système</h3>
+
+            <p>
+                Plusieurs masses connues ont ensuite été ajoutées sur la table
+                d'harmonie afin de mesurer le déplacement de la fréquence de
+                résonance. Une régression linéaire permet alors de remonter aux
+                paramètres mécaniques du modèle, notamment la masse modale
+                équivalente et la raideur de la structure.
+            </p>
+s
+            <p>
+                Ces grandeurs expérimentales servent directement d'entrée à la
+                simulation numérique développée par la suite.
+            </p>
+
+        </div>
+        <div class="photo" style="flex:0 0 480px;">
+
+            <img src="images/loup_reg.jpg" alt="" style="width:100%; widthheight:auto; display:block;">
+            <p class="legende" align="center">
+                Régression linéaire utilisée pour déterminer la masse modale et la
+                raideur équivalente de la table d'harmonie.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="contact-card droite">
+
+        <div class="texte">
+
+            <h3>Simulation numérique et validation</h3>
+
+            <p>
+                Les paramètres identifiés expérimentalement ont été intégrés dans
+                un programme simulant le comportement des deux oscillateurs
+                couplés. Les calculs reproduisent le phénomène de
+                <strong>croisement évité</strong>, caractéristique des systèmes
+                fortement couplés, ainsi que l'apparition des deux fréquences
+                responsables de la note du loup.
+            </p>
+
+            <div class="photo" style="flex:0 0 480px;" align="center">
+                <img src="images/loup_comparaison.jpg" alt="" style="width:80%; widthheight:auto; display:block;">
+                <p class="legende" align="center">
+                    On retrouve un écart minimal en fréquence.
+                </p>
+            </div>
+
+            <p>
+                Enfin, l'utilisation d'un <em>tueur de loup</em>, une petite masse
+                fixée sur la corde, montre expérimentalement le déplacement des
+                fréquences de résonance prévu par le modèle. Cette comparaison
+                confirme la pertinence de la modélisation et permet d'expliquer le
+                fonctionnement de ce dispositif utilisé par les musiciens.
+            </p>
+
+        </div>
+
+        <div class="photo" style="flex:0 0 480px">
+
+            <img src="images/loup_evitement.jpg" alt="" style="width:85%; widthheight:auto; display:block;">
+            <p class="legende" align="center">
+                Le modèle prédit un croisement évité entre les deux modes
+                vibratoires lorsqu'ils deviennent résonants.
+            </p>
+
+            <img src="images/loup_croisement1.jpg" alt="" style="width:55%; widthheight:auto; display:block;">
+            <p class="legende" align="center">
+                Vérification expérimentale à l'aide d'un tueur de loup monté sur
+                le violoncelle.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="contact-card gauche">
+
+        <div class="texte">
+
+            <h3>Compétences développées</h3>
+
+            <p>
+                Ce projet m'a permis de conduire une étude scientifique complète,
+                depuis la conception d'expériences jusqu'à la validation d'un
+                modèle théorique. J'y ai développé des compétences en physique des
+                vibrations, acoustique, instrumentation, traitement du signal,
+                analyse de données et programmation scientifique sous Python. Il
+                m'a également appris à confronter des résultats expérimentaux à un
+                modèle numérique et à communiquer ces travaux au travers d'un
+                rapport scientifique.
+            </p>
+
+        </div>
+
+    </div>
+
+    <p class="note">
+        Rapport rédigé individuellement dans le cadre du Projet Tutoré de
+        Licence de Physique à l'Université Côte d'Azur.
+    </p>
+
+</section>

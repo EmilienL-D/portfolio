@@ -1,0 +1,225 @@
+<section class="contenu-centre">
+
+    <h2 class="page-titre">
+        Détecteur d'incidence lumineuse
+    </h2>
+
+    <p class="intro">
+        Projet réalisé au FabLab de l'Université Côte d'Azur dans le cadre d'un
+        travail de conception instrumentale. L'objectif était de développer un
+        système capable de déterminer automatiquement la direction d'arrivée
+        d'une source lumineuse à partir de plusieurs capteurs photosensibles.
+        Ce projet m'a permis d'aborder l'instrumentation optique, la
+        programmation embarquée sur Arduino ainsi que le traitement numérique
+        des mesures expérimentales.
+    </p>
+
+
+
+    <div class="contact-card gauche" style="display:flex; align-items:center; gap:20px;">
+
+        <div class="texte" style="flex:1;">
+
+            <h3>Principe du détecteur</h3>
+
+            <p>
+                Le dispositif repose sur trois photorésistances (LDR) disposées
+                suivant une géométrie fixe. Lorsqu'une source lumineuse éclaire
+                le système, chaque capteur reçoit une intensité légèrement
+                différente selon son orientation par rapport à la lumière
+                incidente.
+            </p>
+
+            <p>
+                L'analyse de ces différences d'éclairement permet d'estimer la
+                direction de la source lumineuse, caractérisée par son azimut et
+                son angle d'incidence.
+            </p>
+
+        </div>
+
+        <div class="photo" style="flex:0 0 420px; text-align:center;">
+
+            <img src="images/ldr.jpg"
+                 alt=""
+                 style="width:35%; height:auto; display:block; margin:auto;">
+
+            <p class="legende">
+                Principe du détecteur utilisant trois photorésistances.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+
+    <div class="contact-card droite" style="display:flex; align-items:center; gap:20px;">
+
+        <div class="photo" style="flex:0 0 420px; text-align:center;">
+
+            <img src="images/arduino.jpg"
+                 alt=""
+                 style="width:75%; height:auto; display:block; margin:auto;">
+
+            <p class="legende">
+                Prototype développé autour d'une carte Arduino.
+            </p>
+
+        </div>
+
+        <div class="texte" style="flex:1;">
+
+            <h3>Acquisition des mesures</h3>
+
+            <p>
+                Les trois capteurs sont reliés aux entrées analogiques d'une
+                carte Arduino qui mesure en continu leur tension de sortie. Les
+                valeurs numériques obtenues sont ensuite utilisées pour estimer
+                l'orientation de la source lumineuse en temps réel.
+            </p>
+
+            <p>
+                Le programme effectue plusieurs acquisitions par seconde et
+                affiche directement les angles calculés sur le port série afin
+                de faciliter les phases de calibration et de validation
+                expérimentale.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+
+    <div class="contact-card gauche" style="display:flex; align-items:center; gap:20px;">
+
+        <div class="texte" style="flex:1;">
+
+            <h3>Détermination de la direction lumineuse</h3>
+
+            <p>
+                Les différences d'intensité mesurées entre les trois
+                photorésistances permettent de calculer l'azimut de la source à
+                l'aide de fonctions trigonométriques. L'angle d'incidence est
+                ensuite estimé à partir de l'intensité lumineuse moyenne reçue
+                par les capteurs.
+            </p>
+
+            <p>
+                Ce traitement transforme des mesures analogiques simples en une
+                estimation complète de la direction d'arrivée de la lumière,
+                illustrant le lien entre acquisition expérimentale, modélisation
+                géométrique et calcul numérique.
+            </p>
+
+        </div>
+
+        <div class="photo" style="flex:0 0 420px; text-align:center;">
+
+            <img src="images/capteur.png"
+                 alt=""
+                 style="width:100%; height:auto; display:block; margin:auto;">
+
+            <p class="legende">
+                Les intensités mesurées permettent de retrouver l'azimut et
+                l'angle d'incidence de la source lumineuse.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+
+    <div class="contact-card droite" style="display:flex; align-items:center; gap:20px;">
+
+        <div class="photo" style="flex:0 0 420px; text-align:center;">
+
+            <img src="images/code.png"
+                 alt=""
+                 style="width:100%; height:auto; display:block; margin:auto;">
+
+            <p class="legende">
+                Extrait du programme développé en langage Arduino (C++).
+            </p>
+
+        </div>
+
+        <div class="texte" style="flex:1;">
+
+            <h3>Programmation embarquée</h3>
+
+            <p>
+                Le logiciel embarqué a été développé en langage Arduino (C++).
+                Il assure l'acquisition des mesures, le calcul des angles
+                d'incidence et d'azimut ainsi que l'affichage des résultats en
+                temps réel.
+            </p>
+
+            <p>
+                Ce projet m'a permis de me familiariser avec la programmation de
+                microcontrôleurs, l'utilisation de capteurs analogiques et
+                l'implémentation de méthodes de calcul trigonométriques dans un
+                environnement embarqué.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+
+    <div class="contact-card gauche">
+
+        <div class="texte">
+
+            <h3>Compétences développées</h3>
+
+            <p>
+                Ce projet m'a permis d'acquérir des compétences en
+                instrumentation optique, électronique, programmation embarquée,
+                acquisition de données, traitement numérique de mesures,
+                géométrie, trigonométrie appliquée et analyse expérimentale.
+                Il m'a également sensibilisé aux problématiques de calibration
+                des capteurs et d'interprétation de données issues de mesures
+                physiques.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="contact-card droite">
+
+        <div class="texte">
+
+            <h3>Résultat</h3>
+
+            <p>
+                Le détecteur était capable d'estimer en temps réel la direction
+                d'une source lumineuse à partir des seules intensités mesurées
+                par les trois photorésistances. Ce projet, évalué à
+                <strong>19/20</strong>, m'a permis de mettre en pratique des
+                notions d'optique, d'électronique et de programmation dans le
+                cadre d'une réalisation expérimentale complète.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <p class="note">
+        Projet réalisé au FabLab de l'Université Côte d'Azur dans le cadre de la
+        Licence de Physique.
+    </p>
+
+</section>

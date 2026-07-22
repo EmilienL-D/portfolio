@@ -1,0 +1,214 @@
+<section class="contenu-centre">
+
+    <h2 class="page-titre">
+        Billard chaotique
+    </h2>
+
+    <p class="intro">
+        Projet personnel développé en langage C à la suite de ma troisième année
+        de Licence de Physique. L'objectif était de construire un simulateur
+        général de billards dynamiques capable de modéliser la trajectoire d'une
+        particule se réfléchissant sur des contours de géométrie arbitraire.
+        Ce travail m'a conduit à développer des algorithmes de géométrie
+        numérique, de calcul scientifique et de visualisation afin d'étudier les
+        propriétés des systèmes chaotiques.
+    </p>
+
+
+    <div class="contact-card gauche" style="display:flex; align-items:center; gap:20px;">
+
+        <div class="texte" style="flex:1;">
+
+            <h3>Le problème du billard dynamique</h3>
+
+            <p>
+                Dans un billard mathématique, une particule ponctuelle se déplace
+                librement jusqu'à rencontrer une frontière où elle subit une
+                réflexion spéculaire : l'angle de réflexion est égal à l'angle
+                d'incidence. Malgré cette règle très simple, certaines géométries
+                conduisent à des comportements extrêmement complexes,
+                caractéristiques des systèmes chaotiques.
+            </p>
+
+            <p>
+                L'objectif du projet était de développer un simulateur capable de
+                reproduire ces trajectoires pour des contours composés de cercles,
+                ellipses, paraboles ou droites, sans dépendre d'une géométrie
+                particulière.
+            </p>
+
+        </div>
+
+        <div class="photo" style="flex:0 0 256px;">
+
+            <img src="images/billard_principe.jpg" alt="" style="width:100%; height:auto; display:block;">
+            <p class="legende" align="center">
+                Principe d'un billard dynamique où une particule rebondit sur un contour fermé.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="contact-card droite" style="display:flex; align-items:center; gap:20px;">
+
+        <div class="photo" style="flex:0 0 420px;">
+
+            <img src="images/billard_surfaces.jpg" alt="" style="width:100%; height:auto; display:block;">
+            <p class="legende" align="center">
+                Les contours sont construits à partir de fonctions implicites.
+            </p>
+
+        </div>
+
+        <div class="texte" style="flex:1;">
+
+            <h3>Construire des géométries arbitraires</h3>
+
+            <p>
+                Plutôt que de limiter la simulation à quelques formes simples,
+                chaque portion du contour est décrite par une équation implicite
+                de la forme <em>F(x,y)=0</em>. Cette approche permet de combiner
+                librement cercles, ellipses, paraboles ou segments afin de créer
+                des billards beaucoup plus complexes.
+            </p>
+
+            <p>
+                Un programme auxiliaire calcule automatiquement les intersections
+                entre ces surfaces afin de construire le contour complet utilisé
+                par la simulation.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="contact-card gauche" style="display:flex; align-items:center; gap:20px;">
+
+        <div class="texte" style="flex:1;">
+
+            <h3>Calculer chaque rebond</h3>
+
+            <p>
+                À chaque collision, le programme recherche le premier point
+                d'intersection entre la trajectoire et le contour. La normale à la
+                surface est ensuite calculée numériquement à partir du gradient de
+                l'équation implicite, ce qui permet d'obtenir la nouvelle direction
+                du mouvement grâce aux lois de la réflexion.
+            </p>
+
+            <p>
+                Cette méthode fonctionne de manière identique quelle que soit la
+                géométrie rencontrée, rendant le moteur de simulation entièrement
+                générique.
+            </p>
+
+        </div>
+
+        <div class="photo" style="flex:0 0 420px;">
+
+            <img src="images/billard_reflexion.jpg" alt="" style="width:100%; height:auto; display:block;">
+            <p class="legende" align="center">
+                Calcul de la réflexion à partir de la normale locale à la surface.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="contact-card droite" style="display:flex; align-items:center; gap:20px;">
+
+        <div class="photo" style="flex:0 0 480px;">
+
+            <img src="images/billard_phase.jpg" alt="" style="width:480px; height:auto; display:block; margin:auto;">
+
+            <p class="legende" style="text-align:center;">
+                Exemple de portrait de phase obtenu à partir des impacts successifs pour un contour en ellipse.
+            </p>
+
+        </div>
+
+        <div class="texte" style="flex:1;">
+
+            <h3>Portrait de phase</h3>
+
+            <p>
+                Pour analyser la dynamique du système, le programme calcule
+                automatiquement l'abscisse curviligne du point d'impact sur le
+                contour ainsi que l'angle de réflexion. Ces deux grandeurs sont
+                utilisées pour construire le portrait de phase du billard.
+            </p>
+
+            <p>
+                Cette représentation permet de distinguer les trajectoires
+                régulières des régions chaotiques et constitue un outil classique
+                d'étude des systèmes dynamiques.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <div class="contact-card gauche">
+
+        <div class="texte">
+
+            <h3>Architecture du programme</h3>
+
+            <p>
+                Le projet a été entièrement développé en langage C sous Linux.
+                L'architecture repose sur des structures de données représentant
+                les vecteurs, les surfaces, les contours et les faisceaux, ainsi
+                que sur plusieurs modules dédiés au calcul des intersections,
+                aux projections sur les courbes, au calcul des normales et à la
+                visualisation des résultats.
+            </p>
+
+            <p>
+                Les données produites sont exportées sous forme de fichiers
+                exploitables directement avec Xmgrace pour représenter les
+                trajectoires, les contours et les portraits de phase.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="contact-card droite">
+
+        <div class="texte">
+
+            <h3>Compétences développées</h3>
+
+            <p>
+                Ce projet m'a permis de concevoir un logiciel scientifique complet,
+                depuis la modélisation mathématique jusqu'à l'implémentation
+                numérique. J'y ai développé des compétences en géométrie
+                algorithmique, méthodes numériques, programmation scientifique en
+                langage C, structures de données, résolution d'équations non
+                linéaires, calcul vectoriel et analyse des systèmes dynamiques.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <p class="note">
+        Projet personnel réalisé en langage C dans le prolongement de la Licence
+        de Physique de l'Université Côte d'Azur.
+    </p>
+
+</section>

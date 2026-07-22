@@ -1,0 +1,268 @@
+<section class="contenu-centre">
+
+    <h2 class="page-titre">
+        Propagation d'ondes ultrasonores
+    </h2>
+
+    <p class="intro">
+        Projet réalisé en deuxième année de Licence de Physique dans le cadre
+        d'un enseignement de modélisation numérique. L'objectif était de
+        développer un simulateur capable de reproduire la propagation d'un
+        train d'ondes ultrasonores émis par un réseau de plusieurs sources.
+        En contrôlant le temps d'émission de chaque émetteur, le programme
+        permet de générer aussi bien une onde plane qu'une onde focalisée,
+        illustrant les principes physiques utilisés dans les sondes
+        d'échographie modernes.
+    </p>
+
+
+    <div class="contact-card gauche" style="display:flex; align-items:center; gap:20px;">
+
+        <div class="texte" style="flex:1;">
+
+            <h3>Le principe d'une sonde ultrasonore</h3>
+
+            <p>
+                Une sonde d'échographie est constituée d'un ensemble
+                d'émetteurs ultrasonores capables de produire des impulsions
+                acoustiques de manière indépendante. La superposition des
+                ondes émises par chaque élément permet de contrôler la forme
+                du front d'onde ainsi que sa direction de propagation.
+            </p>
+
+            <p>
+                Le projet consiste à modéliser ce phénomène en simulant la
+                propagation d'un train d'ondes dans un milieu homogène afin
+                d'étudier l'influence des temps d'émission sur la dynamique
+                globale du front d'onde.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="contact-card droite" style="display:flex; align-items:center; gap:20px;">
+
+        <div class="texte" style="flex:1;">
+
+            <h3>Modéliser un réseau de sources</h3>
+
+            <p>
+                Chaque émetteur est représenté par une source ponctuelle
+                générant un train d'ondes modulé par une enveloppe
+                gaussienne. Les positions des émetteurs sont définies le long
+                d'une ligne afin de reproduire la géométrie d'une sonde
+                ultrasonore.
+            </p>
+
+            <p>
+                L'ensemble des ondes est obtenu par superposition des
+                contributions individuelles, conformément au principe de
+                linéarité de l'équation de propagation.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="contact-card gauche" style="display:flex; align-items:center; gap:20px;">
+
+        <div class="texte" style="flex:1;">
+
+            <h3>Créer une onde plane</h3>
+
+            <p>
+                Une onde plane est obtenue en introduisant un retard
+                d'émission différent pour chaque source. Les fronts d'onde
+                issus des différents émetteurs arrivent alors en phase dans
+                une direction choisie, ce qui oriente le faisceau sans
+                déplacer physiquement la sonde.
+            </p>
+
+            <p>
+                Le programme permet de choisir librement l'angle de
+                propagation puis de visualiser l'évolution temporelle du
+                front d'onde correspondant.
+            </p>
+
+        </div>
+
+        <div class="photo" style="flex:0 0 420px;">
+
+            <img src="images/echographie_onde_plane.png" alt="" style="width:100%; height:auto; display:block;">
+
+            <p class="legende" align="center">
+                Génération numérique d'une onde plane orientée.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="contact-card droite" style="display:flex; align-items:center; gap:20px;">
+
+        <div class="photo" style="flex:0 0 420px;">
+
+            <img src="images/echographie_focalisee.png" alt="" style="width:100%; height:auto; display:block;">
+
+            <p class="legende" align="center">
+                Les retards d'émission permettent de concentrer l'énergie en un point focal.
+            </p>
+
+        </div>
+
+        <div class="texte" style="flex:1;">
+
+            <h3>Focaliser le faisceau</h3>
+
+            <p>
+                Pour reproduire le fonctionnement d'une sonde d'échographie,
+                les temps d'émission sont calculés de manière à ce que les
+                impulsions issues de chaque source atteignent un point donné
+                exactement au même instant.
+            </p>
+
+            <p>
+                Cette synchronisation provoque une interférence constructive
+                au voisinage du point focal et concentre l'énergie acoustique
+                dans une région très localisée.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="contact-card gauche" style="display:flex; align-items:center; gap:20px;">
+
+        <div class="texte" style="flex:1;">
+
+            <h3>Calcul numérique de la propagation</h3>
+
+            <p>
+                L'espace étudié est discrétisé sur une grille bidimensionnelle
+                régulière. Pour chaque instant d'observation, le programme
+                calcule la contribution de chaque émetteur avant de sommer les
+                amplitudes afin d'obtenir le champ d'onde complet.
+            </p>
+
+            <p>
+                Les simulations sont réalisées avec Python et NumPy, ce qui
+                permet de manipuler efficacement de grandes matrices et de
+                produire rapidement des visualisations de la propagation.
+            </p>
+
+        </div>
+
+        <div class="photo" style="flex:0 0 420px;">
+
+            <img src="images/echographie_simulation.png" alt="" style="width:100%; height:auto; display:block;">
+
+            <p class="legende" align="center">
+                Calcul du champ d'onde sur une grille bidimensionnelle.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="contact-card droite" style="display:flex; align-items:center; gap:20px;">
+
+        <div class="photo" style="flex:0 0 480px;">
+
+            <img src="images/echographie_regression.png" alt="" style="width:100%; height:auto; display:block;">
+
+            <p class="legende" align="center">
+                Analyse automatique du front d'onde par régression linéaire.
+            </p>
+
+        </div>
+
+        <div class="texte" style="flex:1;">
+
+            <h3>Validation des résultats</h3>
+
+            <p>
+                Afin de vérifier la qualité des simulations, plusieurs outils
+                d'analyse ont été développés. Les maxima du champ d'onde sont
+                automatiquement détectés puis exploités pour effectuer des
+                régressions linéaires permettant de mesurer la direction de
+                propagation d'une onde plane.
+            </p>
+
+            <p>
+                Dans le cas d'une onde focalisée, ces traitements permettent
+                également de retrouver numériquement la position effective du
+                point focal obtenu par la simulation.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="contact-card gauche">
+
+        <div class="texte">
+
+            <h3>Architecture du programme</h3>
+
+            <p>
+                Le projet a été entièrement développé en Python en s'appuyant
+                sur les bibliothèques NumPy et Matplotlib. L'architecture est
+                organisée autour de modules dédiés à l'initialisation des
+                sources, au calcul des temps d'émission, à la propagation des
+                ondes, à leur visualisation ainsi qu'à l'analyse automatique
+                des résultats expérimentaux.
+            </p>
+
+            <p>
+                Cette organisation modulaire facilite l'ajout de nouveaux
+                scénarios de simulation et la comparaison entre différentes
+                configurations de la sonde ultrasonore.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="contact-card droite">
+
+        <div class="texte">
+
+            <h3>Compétences développées</h3>
+
+            <p>
+                Ce projet m'a permis d'approfondir la modélisation numérique
+                de phénomènes ondulatoires ainsi que l'utilisation de Python
+                pour le calcul scientifique. J'y ai développé des compétences
+                en propagation d'ondes, traitement numérique des données,
+                calcul matriciel avec NumPy, visualisation scientifique avec
+                Matplotlib, analyse géométrique, régression linéaire et
+                conception d'un programme scientifique structuré.
+            </p>
+
+        </div>
+
+    </div>
+
+
+
+    <p class="note">
+        Projet réalisé en deuxième année de Licence de Physique à
+        l'Université Côte d'Azur.
+    </p>
+
+</section>
