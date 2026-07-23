@@ -744,6 +744,24 @@ footer{
 }
 
 
+.photo-256{
+
+    flex:0 0 256px;
+
+}
+
+.photo-420{
+
+    flex:0 0 420px;
+
+}
+
+.photo-480{
+
+    flex:0 0 480px;
+
+}
+
 /* ---------- Tablettes ---------- */
 
 @media (max-width:1000px){
