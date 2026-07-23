@@ -686,6 +686,63 @@ footer{
    RESPONSIVE
    ========================================================== */
 
+/* ==========================================================
+   PAGES PROJETS
+   ========================================================== */
+
+.contact-card.gauche,
+.contact-card.droite{
+
+    display:flex;
+    align-items:center;
+    gap:30px;
+
+}
+
+.contact-card.gauche .texte,
+.contact-card.droite .texte{
+
+    flex:1;
+
+}
+
+.contact-card.gauche .photo,
+.contact-card.droite .photo{
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+
+}
+
+.contact-card.gauche .photo img,
+.contact-card.droite .photo img{
+
+    display:block;
+
+    max-width:100%;
+    height:auto;
+
+    border-radius:8px;
+
+}
+
+.legende{
+
+    margin-top:12px;
+
+    text-align:center;
+
+    color:var(--gris);
+
+    font-size:.95rem;
+
+    font-style:italic;
+
+    line-height:1.5;
+
+}
+
 
 /* ---------- Tablettes ---------- */
 
@@ -831,6 +888,48 @@ footer{
         font-size:1.3rem;
 
     }
+
+   .contact-card.gauche,
+.contact-card.droite{
+
+    flex-direction:column;
+
+    align-items:stretch;
+
+}
+
+.contact-card.droite{
+
+    flex-direction:column-reverse;
+
+}
+
+.contact-card.gauche .photo,
+.contact-card.droite .photo{
+
+    flex:none !important;
+
+    width:100%;
+
+}
+
+.contact-card.gauche .photo img,
+.contact-card.droite .photo img{
+
+    width:100% !important;
+
+    max-width:500px;
+
+    margin:auto;
+
+}
+
+.contact-card.gauche .texte,
+.contact-card.droite .texte{
+
+    width:100%;
+
+}
 
 }
 
