@@ -1,16 +1,12 @@
-/* =============================== */
-/*            GLOBAL               */
-/* =============================== */
+/* ==========================================================
+   GLOBAL
+   ========================================================== */
 
 *{
-
     margin:0;
     padding:0;
-
     box-sizing:border-box;
-
 }
-
 
 :root{
 
@@ -25,36 +21,42 @@
 
 }
 
+html{
+    scroll-behavior:smooth;
+}
 
 body{
 
     font-family:Inter, Arial, sans-serif;
 
-    background:white;
+    background:#fff;
 
     color:var(--noir);
+
+    line-height:1.6;
+
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
 
 }
 
 
-/* =============================== */
-/*            HEADER               */
-/* =============================== */
 
+/* ==========================================================
+   HEADER
+   ========================================================== */
 
 header{
 
-    width:100%;
-
-    padding:70px 10%;
-
-    min-height:320px;
+    position:relative;
 
     display:flex;
-
     align-items:center;
 
-    position:relative;
+    width:100%;
+    min-height:320px;
+
+    padding:70px 10%;
 
     overflow:hidden;
 
@@ -66,39 +68,16 @@ header{
 
 }
 
-
 .profil{
 
-    display:flex;
-
-    align-items:center;
-
-    gap:30px;
-
     position:relative;
-
     z-index:1;
 
-}
-
-.profil h1{
-
-    font-size:2rem;
-
-    font-weight:500;
-
-    color:white;
+    display:flex;
+    align-items:center;
+    gap:30px;
 
 }
-
-.profil p{
-
-    margin-top:8px;
-
-    color:rgba(255,255,255,.9);
-
-}
-
 
 .profil img{
 
@@ -115,40 +94,55 @@ header{
 
 }
 
+.profil h1{
+
+    font-size:2rem;
+    font-weight:500;
+
+    color:#fff;
+
+}
+
+.profil p{
+
+    margin-top:8px;
+
+    color:rgba(255,255,255,.9);
+
+}
 
 
-/* =============================== */
-/*          NAVIGATION             */
-/* =============================== */
 
+/* ==========================================================
+   NAVIGATION
+   ========================================================== */
 
 nav{
 
     display:flex;
-
     justify-content:center;
-
+    align-items:center;
     gap:80px;
 
     padding:25px;
 
 }
 
-
 nav a{
 
     position:relative;
 
-    text-decoration:none;
+    padding-bottom:12px;
 
     color:var(--noir);
 
+    text-decoration:none;
+
     font-size:1rem;
 
-    padding-bottom:12px;
+    transition:color .3s ease;
 
 }
-
 
 nav a::after{
 
@@ -162,21 +156,19 @@ nav a::after{
     width:0;
     height:2px;
 
-    background:black;
+    background:#000;
 
     transform:translateX(-50%);
 
-    transition:.35s ease;
+    transition:width .35s ease;
 
 }
-
 
 nav a:hover::after{
 
     width:100%;
 
     box-shadow:
-
         0 0 8px rgba(0,0,0,.35),
         0 0 18px rgba(0,0,0,.15);
 
@@ -184,10 +176,9 @@ nav a:hover::after{
 
 
 
-/* =============================== */
-/*             MAIN                */
-/* =============================== */
-
+/* ==========================================================
+   MAIN
+   ========================================================== */
 
 main{
 
@@ -201,8 +192,6 @@ main{
 
 }
 
-
-
 iframe{
 
     width:100%;
@@ -211,12 +200,17 @@ iframe{
 
 }
 
+.contenu-centre{
 
+    max-width:1000px;
 
-/* =============================== */
-/*            ACCUEIL              */
-/* =============================== */
+    margin:auto;
 
+}
+
+/* ==========================================================
+   ACCUEIL
+   ========================================================== */
 
 .hero{
 
@@ -224,40 +218,39 @@ iframe{
 
 }
 
-
 .hero h2{
-
-    font-size:3rem;
-
-    font-weight:300;
 
     margin-bottom:35px;
 
-}
+    font-size:3rem;
+    font-weight:300;
 
+}
 
 .intro{
 
-    font-size:1.3rem;
-
-    line-height:1.8;
-
     margin-bottom:30px;
 
-}
+    font-size:1.3rem;
+    line-height:1.8;
 
+}
 
 .hero p{
 
-    line-height:1.8;
+    margin-bottom:20px;
 
     color:var(--gris-fonce);
 
-    margin-bottom:20px;
+    line-height:1.8;
 
 }
 
 
+
+/* ==========================================================
+   PRESENTATION
+   ========================================================== */
 
 .presentation{
 
@@ -269,26 +262,23 @@ iframe{
 
 }
 
-
 .bloc{
 
     flex:1;
 
-    border-left:2px solid var(--bordure);
-
     padding-left:25px;
 
-}
+    border-left:2px solid var(--bordure);
 
+}
 
 .bloc h3{
 
-    font-weight:500;
-
     margin-bottom:15px;
 
-}
+    font-weight:500;
 
+}
 
 .bloc p{
 
@@ -300,6 +290,10 @@ iframe{
 
 
 
+/* ==========================================================
+   CITATION
+   ========================================================== */
+
 .citation{
 
     margin-top:80px;
@@ -308,12 +302,10 @@ iframe{
 
 }
 
-
 blockquote{
 
-    font-style:italic;
-
     font-size:1.2rem;
+    font-style:italic;
 
     color:var(--gris-clair);
 
@@ -321,61 +313,55 @@ blockquote{
 
 
 
-/* =============================== */
-/*             CONTACT             */
-/* =============================== */
-
-
-
-/* =============================== */
-/*        TITRES DE SECTIONS       */
-/* =============================== */
+/* ==========================================================
+   TITRES DE SECTIONS
+   ========================================================== */
 
 .page-titre{
 
-    font-size:2.5rem;
+    margin-bottom:30px;
 
+    font-size:2.5rem;
     font-weight:300;
 
     letter-spacing:-0.5px;
 
-    margin-bottom:30px;
-
 }
-
 
 .contact .intro,
 .competences .intro{
+
+    margin-bottom:50px;
 
     color:var(--gris-fonce);
 
     line-height:1.8;
 
-    margin-bottom:50px;
-
 }
 
 
+
+/* ==========================================================
+   CONTACT
+   ========================================================== */
 
 .contact-card{
 
-    border-left:2px solid var(--noir);
+    margin-bottom:40px;
 
     padding-left:25px;
 
-    margin-bottom:40px;
+    border-left:2px solid var(--noir);
 
 }
-
 
 .contact-card h3{
 
-    font-weight:500;
-
     margin-bottom:15px;
 
-}
+    font-weight:500;
 
+}
 
 .contact-card p{
 
@@ -385,8 +371,6 @@ blockquote{
 
 }
 
-
-
 .contact-card a{
 
     color:var(--noir);
@@ -395,17 +379,17 @@ blockquote{
 
     font-weight:500;
 
-    transition:.25s;
+    transition:
+        letter-spacing .25s ease,
+        color .25s ease;
 
 }
-
 
 .contact-card a:hover{
 
     letter-spacing:1px;
 
 }
-
 
 .note{
 
@@ -418,41 +402,33 @@ blockquote{
 }
 
 
-
-/* =============================== */
-/*             FOOTER              */
-/* =============================== */
-
+/* ==========================================================
+   FOOTER
+   ========================================================== */
 
 footer{
 
     width:100%;
 
-    background:#262626;
-
     margin-top:80px;
-
     padding:50px 0;
+
+    background:#262626;
 
 }
 
-
-
 .footer-container{
-
-    max-width:1200px;
-
-    margin:auto;
-
-    padding:0 60px;
 
     display:flex;
 
     gap:60px;
 
+    max-width:1200px;
+
+    margin:auto;
+    padding:0 60px;
+
 }
-
-
 
 .footer-colonne{
 
@@ -460,36 +436,39 @@ footer{
 
 }
 
-
 .footer-colonne h4{
-
-    font-weight:700;
-
-    color:white;
 
     margin-bottom:20px;
 
+    font-weight:700;
+
+    color:#fff;
+
 }
-
-
 
 .footer-colonne a{
 
     display:block;
 
-    color:white;
+    margin-bottom:10px;
+
+    color:#fff;
 
     text-decoration:none;
 
-    margin-bottom:10px;
+    transition:opacity .25s ease;
 
 }
 
+.footer-colonne a:hover{
 
+    opacity:.75;
+
+}
 
 .footer-colonne p{
 
-    color:white;
+    color:#fff;
 
     line-height:1.7;
 
@@ -497,9 +476,9 @@ footer{
 
 
 
-/* =============================== */
-/*             PROJETS             */
-/* =============================== */
+/* ==========================================================
+   PROJETS
+   ========================================================== */
 
 .projets{
 
@@ -507,10 +486,7 @@ footer{
 
 }
 
-
 .grille-projets{
-
-    width:100%;
 
     display:grid;
 
@@ -518,10 +494,11 @@ footer{
 
     gap:35px;
 
+    width:100%;
+
     margin-top:50px;
 
 }
-
 
 .carte-projet{
 
@@ -533,22 +510,30 @@ footer{
 
     border-radius:12px;
 
+    text-decoration:none;
+
     cursor:pointer;
 
-    text-decoration:none;
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease;
+
+    will-change:transform;
 
 }
 
 .carte-projet img{
+
+    display:block;
 
     width:100%;
     height:100%;
 
     object-fit:cover;
 
+    transition:transform .35s ease;
+
 }
-
-
 
 .overlay{
 
@@ -559,28 +544,32 @@ footer{
     display:flex;
 
     justify-content:center;
-
     align-items:center;
+
+    padding:20px;
 
     background:rgba(0,0,0,.28);
 
-    transition:.35s;
+    transition:background .35s ease;
 
 }
-
-
 
 .overlay h3{
 
-    color:white;
+    color:#fff;
 
     font-size:1.6rem;
-
     font-weight:400;
+
+    text-align:center;
+
+    line-height:1.3;
 
 }
 
 
+
+/* ---------- Animations Desktop ---------- */
 
 .carte-projet:hover{
 
@@ -590,15 +579,11 @@ footer{
 
 }
 
-
-
 .carte-projet:hover img{
 
     transform:scale(1.05);
 
 }
-
-
 
 .carte-projet:hover .overlay{
 
@@ -607,12 +592,9 @@ footer{
 }
 
 
-
-/* =============================== */
-/*          COMPETENCES             */
-/* =============================== */
-
-
+/* ==========================================================
+   COMPETENCES
+   ========================================================== */
 
 .grille-competences{
 
@@ -624,19 +606,17 @@ footer{
 
 }
 
-
-
 .carte-competence{
 
     padding:35px;
 
     border:1px solid var(--bordure);
 
-    transition:.3s;
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
 
 }
-
-
 
 .carte-competence:hover{
 
@@ -646,29 +626,23 @@ footer{
 
 }
 
-
-
 .carte-competence h3{
-
-    font-weight:500;
 
     margin-bottom:20px;
 
+    font-weight:500;
+
 }
 
-
-
 .carte-competence p{
+
+    margin-bottom:25px;
 
     color:var(--gris);
 
     line-height:1.7;
 
-    margin-bottom:25px;
-
 }
-
-
 
 .carte-competence ul{
 
@@ -676,49 +650,80 @@ footer{
 
 }
 
-
-
 .carte-competence li{
 
-    color:#444;
+    position:relative;
 
     margin-bottom:10px;
 
     padding-left:15px;
 
-    position:relative;
+    color:#444;
 
 }
-
-
 
 .carte-competence li::before{
 
     content:"";
 
-    width:5px;
-    height:5px;
-
-    background:#222;
-
-    border-radius:50%;
-
     position:absolute;
 
     left:0;
-
     top:9px;
+
+    width:5px;
+    height:5px;
+
+    border-radius:50%;
+
+    background:#222;
 
 }
 
 
 
-/* =============================== */
-/*          RESPONSIVE             */
-/* =============================== */
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
 
 
-@media(max-width:800px){
+/* ---------- Tablettes ---------- */
+
+@media (max-width:1000px){
+
+    :root{
+
+        --largeur:90%;
+
+    }
+
+    nav{
+
+        gap:40px;
+
+    }
+
+    .grille-projets{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+
+
+/* ---------- Mobile ---------- */
+
+@media (max-width:800px){
+
+    header{
+
+        padding:50px 8%;
+
+        min-height:auto;
+
+    }
 
     .profil{
 
@@ -728,6 +733,18 @@ footer{
 
     }
 
+    .profil img{
+
+        width:150px;
+        height:150px;
+
+    }
+
+    .profil h1{
+
+        font-size:1.8rem;
+
+    }
 
     nav{
 
@@ -737,14 +754,55 @@ footer{
 
     }
 
+    main{
 
-    .presentation,
-    .footer-container{
+        width:92%;
+
+        padding:40px 0;
+
+    }
+
+    .page-titre{
+
+        font-size:2rem;
+
+        text-align:center;
+
+    }
+
+    .hero h2{
+
+        font-size:2.3rem;
+
+    }
+
+    .intro{
+
+        font-size:1.1rem;
+
+    }
+
+    .presentation{
 
         flex-direction:column;
 
     }
 
+    .bloc{
+
+        padding-left:20px;
+
+    }
+
+    .footer-container{
+
+        flex-direction:column;
+
+        gap:35px;
+
+        padding:0 30px;
+
+    }
 
     .grille-competences{
 
@@ -752,12 +810,81 @@ footer{
 
     }
 
+    .grille-projets{
+
+        grid-template-columns:1fr;
+
+        gap:25px;
+
+    }
+
+    .carte-projet{
+
+        aspect-ratio:16/9;
+
+    }
+
+    .overlay h3{
+
+        padding:0 15px;
+
+        font-size:1.3rem;
+
+    }
+
 }
 
-.contenu-centre{
 
-    max-width:1000px;
 
-    margin:auto;
+/* ---------- Très petits écrans ---------- */
+
+@media (max-width:500px){
+
+    .profil img{
+
+        width:130px;
+        height:130px;
+
+    }
+
+    .profil h1{
+
+        font-size:1.5rem;
+
+    }
+
+    .hero h2{
+
+        font-size:2rem;
+
+    }
+
+    .page-titre{
+
+        font-size:1.8rem;
+
+    }
+
+}
+
+
+
+/* ---------- Appareils tactiles ---------- */
+
+@media (hover:none){
+
+    .carte-projet:hover{
+
+        transform:none;
+
+        box-shadow:none;
+
+    }
+
+    .carte-projet:hover img{
+
+        transform:none;
+
+    }
 
 }
